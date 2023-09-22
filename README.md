@@ -1,5 +1,7 @@
 # Hack The Web - source code and build instructions
 
+[English version](README-en.md)
+
 Hallo! In diesem Repo findest du den Quellcode von Hack The Web. Dieses Readme gibt dir eine Anleitung, wie du diesen Quellcode zum Laufen bringen kannst. Das ist als Backup-Lösung gedacht, falls https://hack.arrrg.de ausfallen sollte. Es gibt die Möglichkeit, das Projekt wieder zum Laufen zu bringen.
 
 Der Quellcode soll aber nicht die Aufgaben spoilern - daher habe ich darauf geachtet, alle sensiblen Daten in eine separate Datei zu packen und nicht mitzuliefern. Darin sind hauptsächlich Antworten gespeichert und ein paar Passwörter. Solltest du die Aufgaben gelöst haben, kannst du diese Datei selbst ausfüllen.
@@ -17,7 +19,7 @@ npm install sqlite3
 
 Mache eine **Kopie** von `secrets.placeholder.js` und benenne sie in `secrets.js` um. 
 
-Damit sind alle Voraussetzungen erfüllt. Du kannst den Server  mit `npm start` starten und hast einen funktionierenden Server auf `localhost:3000`
+Damit sind alle Voraussetzungen erfüllt. Du kannst den Server mit `npm start` starten und hast einen funktionierenden Server auf `localhost:3000`
 
 ## Schritt 2: Antworten eintragen
 
@@ -29,4 +31,4 @@ Im Produktivbetrieb nutzt das Projekt eine separate Datenbank. Das Passwort dazu
 
 ## Schritt 4: Anpassungen
 
-Je nach dem, wie du das Projekt hostest, können sich andere Anforderungen ergeben. Fühl dich frei, den Quellcode entsprechend anzupassen.
+Je nachdem, wie du das Projekt hostest, können sich andere Anforderungen ergeben. Fühl dich frei, den Quellcode entsprechend anzupassen.

@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const escapeHtml = require('escape-html')
 const setupChallengesServer = require('./challenges-server.js')
 const secrets = require('./secrets-loader.js')
+const translations = require('./translations/translations.js')
 
 const path = process.env.SERVERDEV
   ? '../challenges-server'
@@ -32,9 +33,9 @@ require(path)((config) => {
   config.reloadChallenges = !process.env.UBERSPACE
   config.configRoutes = !process.env.UBERSPACE
 
-  config.locale = 'de'
+  config.locale = 'en'
   config.brand = 'Hack The Web'
-  config.slogan = 'Zeig, was in dir steckt!'
+  config.slogan = translations(config.locale, 'general.slogan')
 
   config.port = process.env.HTWPORT ? parseInt(process.env.HTWPORT) : 3000
 
@@ -53,16 +54,16 @@ require(path)((config) => {
   //config.urlPrefix = '//localhost:3000'
   config.hintPage = {
     url: '/hints',
-    label: 'Hinweise',
+    label: translations(config.locale, 'hints.heading'),
   }
   config.historyBack = true
 
   config.githubHref = '/links'
   config.githubTargetBlank = false
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'home.github',
-    value: 'Links',
+    value: translations(config.locale, 'links.heading'),
   })
 
   config.scoreMode = 'distance'
@@ -88,25 +89,25 @@ require(path)((config) => {
   `
 
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'home.version',
     value:
       'Version: September 2023 (<a href="' +
       config.urlPrefix +
-      '/news">Neuigkeiten</a>)',
+      '/news">' + translations(config.locale, 'news.heading') + '</a>)',
   })
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'home.top10',
     value: 'Hacker*innen des Monats',
   })
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'contact.heading',
     value: 'Kontakt / Impressum',
   })
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'contact.content_',
     value: `
       <p class="my-5">
@@ -117,7 +118,7 @@ require(path)((config) => {
     `,
   })
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'home.supporter_',
     value: `
       <p>Dieses Projekt wird freundlicherweise unterstützt von der <a href="https://fg-bil.gi.de/">Fachgruppe Bayerische Informatiklehrkräfte</a>.</p>
@@ -125,7 +126,7 @@ require(path)((config) => {
     `,
   })
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'privacy.content_',
     value: `
       <h3 class="my-4">Persönliche Daten</h3>
@@ -171,13 +172,13 @@ require(path)((config) => {
   })
 
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'finish.heading',
     value: 'Herzlichen Glückwunsch!',
   })
 
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'finish.content_',
     value: `
       <p>Du hast die Session erfolgreich absolviert. Deine 30 Minuten sind nun abgelaufen.</p>
@@ -189,7 +190,7 @@ require(path)((config) => {
   })
 
   config.i18nExtend.push({
-    lng: 'de',
+    lng: config.locale,
     key: 'home.invite_',
     value: `
       </p>
@@ -219,162 +220,8 @@ require(path)((config) => {
     App.express.get('/news', (req, res) => {
       res.renderPage({
         page: 'news',
-        heading: 'Neuigkeiten',
-        content: `
-          <div class="my-5"></div>
-          
-          <h3>September 2023</h3>
-          
-          <p>Es kommt ein neuer Community-Bereich hinzu, dieser ist nach der Passage erreichbar. Dort gibt es regelmäßig neue Aufgaben und ihr könnt eigene Ideen einbringen.
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <h3>August 2023</h3>
-          
-          <p>Kleines Update aus der Sommerpause: Ein paar existierende Aufgaben wurden verbessert.
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <h3>Juli 2023</h3>
-          
-          <p>Das Ziel ist erreicht! Hack The Web hat nun genau 100 Aufgaben. Damit gehe ich wohlverdient in die Sommerpause.
-          </p>
-          
-          <p>Danke für's Mitmachen und wir sehen uns bald wieder!
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <h3>HTW100</h3>
-           
-          <p>In den nächsten Wochen wird es das erste Mal über einen längeren Zeitraum regelmäßige Updates geben. Jeden Mittwoch Abend und jeden Samstag Abend wird im Bereich nach der Passage eine neue Aufgabe freigeschaltet. Gestartet wird morgen Abend (5. April), das Ziel ist erreicht, wenn die 100. Aufgabe freigeschaltet ist, was ungefähr Mitte Juni sein sollte.
-          </p>
-        
-          <div class="my-5"></div>
-          
-          <h3>April 2023</h3>
-           
-          <p>Ich bin super dankbar über die große Community, die mittlerweile Hack The Web täglich bespielt. Danke an Euch! Ihr motiviert mich, immer wieder an der Plattform zu arbeiten, Bugs zu fixen und neue Aufgaben zu erstellen.
-          </p>
-          
-          <p>Mit dieser Version werde ich nun auch den <a href="https://github.com/Entkenntnis/htw">Quellcode für den Server</a> freigeben. Damit möchte ich sicherstellen, dass auch in Zukunft Hack The Web genutzt werden kann, selbst im Fall, wenn dieser Server nicht mehr erreichbar ist. Eine Anleitung ist beigefügt.
-          </p>
-          
-          <p>Ansonsten wird es in den nächsten Wochen einige Verbesserungen an den bestehenden Aufgaben geben. Die Karte erhält zum ersten Mal ein kleines farbliches Update.
-          </p>
-        
-          <div class="my-5"></div>
-          
-          <h3>März 2023</h3>
-           
-          <p>Ein paar alte Aufgaben wurden mit neuen Ideen gefüllt, dabei wurden zwei Aufgaben zu einer zusammengefasst, es kommen zwei neue Aufgaben hinzu.
-          </p>
-          
-          <p>Punktzahlen passen sich ein wenig an, es gibt wieder eine neue Höchstpunktzahl.</p>
-        
-          <div class="my-5"></div>
-          
-          <h3>Januar 2023</h3>
-           
-          <p>Vielen Dank an die vielen Spieler*innen und an die Lehrkräfte, die Hack The Web regelmäßig im Klassenzimmer einsetzen! Am 21. Oktober 2022 ist die Plattform offiziell 5 Jahre alt geworden und in dieser Zeit ordentlich gewachsen. Es ist mir eine große Ehre, euch diese Plattform anzubieten und ich freue mich, euch mit weiteren Updates und neuen Aufgaben in die Welt der Hacker*innen einführen zu dürfen.
-          </p>
-          
-          <p>Zum neuen Jahr gibt es also wieder 3 neue Aufgaben, zwei existierende Aufgaben (darunter das Finale) erhalten ebenfalls einen neuen Anstrich. Frohes Hacken an Alle!</p>
-          
-          <p>Üblicher Hinweis: eine Aufgabe verschiebt sich, daher passen sich die Punktzahlen minimal an. Es gibt wieder eine neue Höchstpunktzahl.
-          </p>
-        
-          <div class="my-5"></div>
-          
-          <h3>August 2022</h3>
-          
-          <p>In den letzten Monaten gab es einiges an Feedback zu den Aufgaben. Im Rahmen der regelmäßigen Pflege wurden alle Aufgaben nochmal auf Herz und Niere geprüft und bei fast einem Drittel davon entsprechende Verbesserungen durchgeführt.</p>
-        
-          <div class="my-5"></div>
-          
-          <h3>Mai 2022</h3>
-          
-          <p>Ab diesem Update wird bei Aufgaben nun angezeigt, zu welchem Zeitpunkt sie erstellt wurden. Außerdem gibt es wieder einige Verbesserungen an den bestehenden Aufgaben.</p>
-          
-          <div class="my-5"></div>
-          
-          <h3>März 2022</h3>
-          
-          <p>Als Ergänzung zum vorherigen Update gibt es noch einige Verbesserungen an den bestehenden Aufgaben, inklusive zweier neuer Aufgaben.</p>
-          
-          <div class="my-5"></div>
-          
-          <h3>Februar 2022</h3>
-          
-          <p>Die Reise geht weiter! Hinter dem Finale finden sich nun sechs neue Aufgaben. Erstmals kann damit eine Punktzahl im vierstelligen Bereich erreicht werden.</p>
-          
-          <p>Auch im Anfangsbereich gibt es zwei neue Aufgaben. Ein paar bestehende Aufgaben wechseln ihre Plätze. Dadurch passen sich die Punktzahlen leicht an.</p>
-          
-          <div class="my-5"></div>
-          
-          <h3>Juli 2021</h3>
-          
-          <p>Dieses Update bringt ein paar Verbesserungen am "Quality of Service". Dazu gehören:
-          </p>
-          
-          <ul>
-            <li>Die Highscore lässt sich nun sortieren. Es gibt drei Optionen: Nach Punktzahl (wie bisher), nach Punktzahl der aktiven Benutzer des letzten Monats und nach dem Zeitpunkt der letzten Aktivität. Damit bekommt man eine bessere Übersicht, was aktuell auf der Plattform passiert.</li>
-            <li>Im Profil wird nun der aktuelle (globale) Platz und die zuletzt gelöste Aufgabe angezeigt.</li>
-            <li>Einige Aufgaben wurden überarbeitet und verbessert.</li>
-            <li>Auf der Community-Seite sind ein paar neue Hinweise hinzugekommen.</li>
-            <li>Ein Bug in der Punkteberechnung wurde behoben, alle Punkte wurden nochmal neuberechnet. Die Platzierung sollte sich dadurch nicht verändert haben.</li>
-          </ul>
-          
-          <div class="my-5"></div>
-          
-          <h3>April 2021</h3>
-          
-          <p>Es gibt wieder ein Update mit sechs neuen Aufgaben, vier alte Aufgaben verabschieden sich dafür in den Ruhestand. Die Punktenzahlen wurden darauf angepasst - es gibt nun eine neue mögliche Höchstpunktzahl.
-          </p>
-          
-          <p>Eine weitere Ergänzung: Es gibt nun eine <a href="https://de.serlo.org/200247" target="_blank">Community-Seite</a> mit Hinweisen zu den Aufgaben und weiteren Hintergrundinformationen.
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <h3>September 2020</h3>
-          
-          <p>Sei bereit für das große Finale! Mit diesem Update gibt es sieben neue Aufgaben und die Karte wird damit vervollständigt.
-          </p>
-          
-          <p>Außerdem wird das Punktesystem fairer gemacht: Der Zeitbonus entfällt, dafür werden die Punkte anhand der Schwierigkeit der Aufgaben bestimmt. Je weiter entfernt eine Aufgabe vom Start liegt, umso mehr Punkte gibt es. Es gilt die Formel: Punktzahl = 10 + (minimale Anzahl Kanten zum Start). Damit spiegeln die Punkte besser die Arbeit wieder, die man in die Aufgaben gesteckt hat.
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <h3>August 2020</h3>
-          
-          <p>Dieses Update enthält einige Verbesserungen an den bestehenden Aufgaben und fünf neue Aufgaben.
-          </p>
-          
-          <div class="my-5"></div>
-        
-          <h3>Juni 2020</h3>
-          
-          <p>Nach mehr als einem Jahr Inaktivität gibt es endlich ein Update: Neue Aufgaben, neue Funktionen und Open Source! Die Änderungen im Detail:
-          </p>
-          
-          <ul>
-            <li>Zu den bestehenden 35 Aufgaben kommen 15 neue Aufgaben und sorgen hoffentlich für noch mehr Spaß und Herausforderung.
-            </li>
-            <li>Der 30-Minuten-Session-Modus ist nun für alle verfügbar und erleichtert die Teilnahme als Gruppe oder Klasse: Eigenen Raum anlegen und jeweils über den Raumschlüssel beitreten.
-            </li>
-            <li>Registrierte Benutzer können ihr Passwort ändern. Außerdem können Accounts manuell gelöscht werden.
-            </li>
-            <li>Die Plattform von Hack The Web ist nun als Open-Source-Projekt auf GitHub verfügbar: <a href="https://github.com/Entkenntnis/challenges-server" target="_blank">github.com/Entkenntnis/challenges-server</a>. Es ist damit möglich, ganz eigene Varianten von Challenge-Webseiten aufzubauen.
-            </li>
-          </ul>
-          
-          <p>Ich wünsche allen Hackerinnen und Hackern viel Spaß beim Knobeln!
-          </p>
-        `,
+        heading: translations(config.locale, 'news.heading'),
+        content: translations(config.locale, 'news.content'),
       })
     })
 

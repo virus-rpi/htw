@@ -33,7 +33,7 @@ require(path)((config) => {
   config.reloadChallenges = !process.env.UBERSPACE
   config.configRoutes = !process.env.UBERSPACE
 
-  config.locale = 'en'
+  config.locale = navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en'
   config.brand = 'Hack The Web'
   config.slogan = translations(config.locale, 'general.slogan')
 

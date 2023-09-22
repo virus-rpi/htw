@@ -33,7 +33,7 @@ require(path)((config) => {
   config.reloadChallenges = !process.env.UBERSPACE
   config.configRoutes = !process.env.UBERSPACE
 
-  config.locale = navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en'
+  config.locale = 'de'
   config.brand = 'Hack The Web'
   config.slogan = translations(config.locale, 'general.slogan')
 
@@ -96,115 +96,52 @@ require(path)((config) => {
       config.urlPrefix +
       '/news">' + translations(config.locale, 'news.heading') + '</a>)',
   })
+
   config.i18nExtend.push({
     lng: config.locale,
     key: 'home.top10',
-    value: 'Hacker*innen des Monats',
+    value: translations(config.locale, 'home.top10'),
   })
+
   config.i18nExtend.push({
     lng: config.locale,
     key: 'contact.heading',
-    value: 'Kontakt / Impressum',
+    value: translations(config.locale, 'contact.heading')
   })
+
   config.i18nExtend.push({
     lng: config.locale,
     key: 'contact.content_',
-    value: `
-      <p class="my-5">
-        David Li<br>
-        ${secrets('config_address')}<br>
-        E-Mail: <a rel="nofollow" href="mailto:hack@arrrg.de">hack@arrrg.de</a>
-      </p>
-    `,
+    value: translations(config.locale, 'contact.content')
   })
   config.i18nExtend.push({
     lng: config.locale,
     key: 'home.supporter_',
-    value: `
-      <p>Dieses Projekt wird freundlicherweise unterstützt von der <a href="https://fg-bil.gi.de/">Fachgruppe bayerische Informatiklehrkräfte</a>.</p>
-      <hr class="my-5"/>
-    `,
+    value: translations(config.locale, 'home.supporter'),
   })
+
   config.i18nExtend.push({
     lng: config.locale,
     key: 'privacy.content_',
-    value: `
-      <h3 class="my-4">Persönliche Daten</h3>
-      
-      <p>Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Du kannst das Angebot von Hack The Web nutzen, ohne personenbezogene Daten weiterzugeben. Die Registrierung funktioniert ohne Angabe einer E-Mail-Adresse, stattdessen gibst du ein selbstgewähltes Pseudonym an. Falls du anonym bleiben möchtest, achte darauf, dass man durch das Pseudonym nicht auf deine Person zurückschließen kann.
-      </p>
-      
-      <h3 class="my-4">Accountdaten</h3>
-      
-      <p>Dein Benutzername wird in der Highscore öffentlich angezeigt und möglicherweise auch auf der Startseite. Es wird der Zeitpunkt der letzten Aktivität auf der Plattform gespeichert und ebenfalls mit angezeigt. Bei jeder Aufgabe ist zudem einsehbar, wie viele Nutzer sie bereits gelöst haben (ohne Rückführung auf einen einzelnen Benutzer). Im Profil lässt sich dein Account jederzeit vollständig löschen. Der Betreiber behält sich das Recht vor, ohne Ankündigung Accounts zu verändern oder zu löschen.
-      </p>
-      
-      <h3 class="my-4">Hosting</h3>
-      
-      <p>Diese Website wird bei <a href="https://uberspace.de">uberspace.de</a> gehostet. Die Datenverarbeitung findet vollständig in Deutschland statt und unterliegt der DSGVO. Bei der Nutzung der Website werden z.T. Protokolle über Aufrufe und Fehler geführt. Die IP-Adresse wird dabei maskiert.
-      </p>
-      
-      <h3 class="my-4">Protokolle</h3>
-      
-      <p>Zur Verbesserung der Aufgaben und um mögliche Probleme zu entdecken, werden intern Protokolle geführt und ausgewertet. Diese Protokolle sind nicht öffentlich zugänglich, werden nicht weitergegeben und auch für keine anderen Zwecke gebraucht. Die Protokolle enthalten deine gelösten Aufgaben und die Eingaben für die Aufgaben (ohne Bezug auf einen einzelnen Nutzer). Nach spätestens einem Jahr werden die Protokolle zu den Eingaben gelöscht.
-      </p>
-      
-      <h3 class="my-4">Cookies</h3>
-      
-      <p>Wenn du dich bei HackTheWeb registrierst bzw. einloggst, setzt die Website einen Cookie mit einer Session-ID. Diese wird benötigt, um deinen Login-Status aufrechtzuerhalten. Der Cookie wird beim Schließen des Browserfensters oder nach einem Tag automatisch gelöscht. Ein Tracking findet damit nicht statt.
-      </p>
-      
-      <p>Lokale Accounts werden dauerhaft in deinem Browser gespeichert. Du kannst durch einen Klick <a onclick="resetLocalUsers()" href="#">alle lokale Accounts entfernen</a>.
-      </p>
-      
-      <h3 class="my-4">Google Fonts</h3>
-      
-      <p>Diese Website verwendet Google Fonts. Für nähere Informationen dazu besuche ihre <a href="https://developers.google.com/fonts/faq" target="_blank">FAQ</a>.
-      </p>
-      
-      <script>
-        function resetLocalUsers() {
-          localStorage.removeItem('htw_local_users')
-          alert('Accounts erfolgreich entfernt.')
-        }
-      </script>
-    `,
+    value: translations(config.locale, 'privacy.content'),
   })
 
   config.i18nExtend.push({
     lng: config.locale,
     key: 'finish.heading',
-    value: 'Herzlichen Glückwunsch!',
+    value: translations(config.locale, 'finish.heading'),
   })
 
   config.i18nExtend.push({
     lng: config.locale,
     key: 'finish.content_',
-    value: `
-      <p>Du hast die Session erfolgreich absolviert. Deine 30 Minuten sind nun abgelaufen.</p>
-      
-      <p>Klicke auf OK, um dein Ergebnis in der Highscore zu speichern. Danach wird dein Account in den freien Modus geschaltet. Du kannst an den Aufgaben weiterarbeiten - ganz ohne Zeitdruck</p>
-      
-      <p>Vielen Dank für die Teilnahme. Wir wünschen dir alles Gute für deine Zukunft als Hacker!</p>
-    `,
+    value: translations(config.locale, 'finish.content'),
   })
 
   config.i18nExtend.push({
     lng: config.locale,
     key: 'home.invite_',
-    value: `
-      </p>
-      
-      <div class="jumbotron" style="padding-top:24px;margin-top:48px;border:#009670 solid 1px;background-image:url('background.jpg');">
-        <p>Neu hier? Starte deine Reise in die Welt des Hacking:
-        </p>
-        <p class="text-center" style="margin-top:48px;">
-          <a href="/register" class="btn btn-success btn-lg">Jetzt loslegen</a>
-        </p>
-      </div>
-
-      <p>Besuche auch die <a href="https://de.serlo.org/200247" target="_blank">Info-Seite</a> oder schaue auf dem <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> vorbei.
-    `,
+    value: translations(config.locale, 'home.invite'),
   })
 
   config.onSubmit = async ({ App, id, correct, solved, isEditor, answer }) => {

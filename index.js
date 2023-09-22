@@ -61,9 +61,14 @@ require(path)((config) => {
   config.githubHref = '/links'
   config.githubTargetBlank = false
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'home.github',
-    value: translations(config.locale, 'links.heading'),
+    value: translations('de', 'links.heading'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'home.github',
+    value: translations('en', 'links.heading'),
   })
 
   config.scoreMode = 'distance'
@@ -89,59 +94,108 @@ require(path)((config) => {
   `
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'home.version',
     value:
       'Version: September 2023 (<a href="' +
       config.urlPrefix +
-      '/news">' + translations(config.locale, 'news.heading') + '</a>)',
+      '/news">' + translations('de', 'news.heading') + '</a>)',
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'home.version',
+    value:
+      'Version: September 2023 (<a href="' +
+      config.urlPrefix +
+      '/news">' + translations('en', 'news.heading') + '</a>)',
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'home.top10',
-    value: translations(config.locale, 'home.top10'),
+    value: translations('de', 'home.top10'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'home.top10',
+    value: translations('en', 'home.top10'),
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'contact.heading',
-    value: translations(config.locale, 'contact.heading')
+    value: translations('de', 'contact.heading')
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'contact.heading',
+    value: translations('en', 'contact.heading')
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'contact.content_',
-    value: translations(config.locale, 'contact.content')
+    value: translations('de', 'contact.content')
   })
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'en',
+    key: 'contact.content_',
+    value: translations('en', 'contact.content')
+  })
+
+  config.i18nExtend.push({
+    lng: 'de',
     key: 'home.supporter_',
-    value: translations(config.locale, 'home.supporter'),
+    value: translations('de', 'home.supporter'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'home.supporter_',
+    value: translations('en', 'home.supporter'),
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'privacy.content_',
-    value: translations(config.locale, 'privacy.content'),
+    value: translations('de', 'privacy.content'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'privacy.content_',
+    value: translations('en', 'privacy.content'),
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'finish.heading',
-    value: translations(config.locale, 'finish.heading'),
+    value: translations('de', 'finish.heading'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'finish.heading',
+    value: translations('en', 'finish.heading'),
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'finish.content_',
-    value: translations(config.locale, 'finish.content'),
+    value: translations('de', 'finish.content'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'finish.content_',
+    value: translations('en', 'finish.content'),
   })
 
   config.i18nExtend.push({
-    lng: config.locale,
+    lng: 'de',
     key: 'home.invite_',
-    value: translations(config.locale, 'home.invite'),
+    value: translations('de', 'home.invite'),
+  })
+  config.i18nExtend.push({
+    lng: 'en',
+    key: 'home.invite_',
+    value: translations('en', 'home.invite'),
   })
 
   config.onSubmit = async ({ App, id, correct, solved, isEditor, answer }) => {

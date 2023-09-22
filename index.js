@@ -77,14 +77,14 @@ require(path)((config) => {
   config.tokenSecret = secrets('config_token_secret')
 
   config.map.backgroundLicenseHtml = `
-    <a href="http://www.flickr.com/photos/scotbot/9686457096">scotbot</a>
+    <a href="https://www.flickr.com/photos/scotbot/9686457096">scotbot (Link broken)</a>
     (<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>)
   `
 
   config.map.customMapHtml = `
-    <img style="position:absolute;left:110px;top:100px;z-index:-1;" src="/start_galaxy.png">
-    <img style="position:absolute;left:1298px;top:903px;z-index:-1;" src="/passage_galaxy.png">
-    <img style="position:absolute;left:650px;top:1640px;z-index:-1;" src="/passage_2_galaxy.png">
+    <img style="position:absolute;left:110px;top:100px;z-index:-1;" src="/start_galaxy.png" alt="background">
+    <img style="position:absolute;left:1298px;top:903px;z-index:-1;" src="/passage_galaxy.png" alt="passage">
+    <img style="position:absolute;left:650px;top:1640px;z-index:-1;" src="/passage_2_galaxy.png" alt="passage">
     <span style="position:absolute; left:680px; top:1680px;z-index:-2; font-size:8px;">&#87;&#65;&#76;&#68;&#79;</span>
   `
 
@@ -121,7 +121,7 @@ require(path)((config) => {
     lng: config.locale,
     key: 'home.supporter_',
     value: `
-      <p>Dieses Projekt wird freundlicherweise unterstützt von der <a href="https://fg-bil.gi.de/">Fachgruppe Bayerische Informatiklehrkräfte</a>.</p>
+      <p>Dieses Projekt wird freundlicherweise unterstützt von der <a href="https://fg-bil.gi.de/">Fachgruppe bayerische Informatiklehrkräfte</a>.</p>
       <hr class="my-5"/>
     `,
   })
@@ -131,12 +131,12 @@ require(path)((config) => {
     value: `
       <h3 class="my-4">Persönliche Daten</h3>
       
-      <p>Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Du kannst das Angebot von Hack The Web nutzen, ohne personenbezogene Daten weiterzugeben. Die Registrierung funktioniert ohne Angabe einer E-Mail-Adresse, stattdessen gibt du ein selbstgewähltes Pseudonym an. Falls du anonym bleiben möchtest, achte darauf, dass man durch das Pseudonym nicht auf deine Person zurückschließen kann.
+      <p>Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Du kannst das Angebot von Hack The Web nutzen, ohne personenbezogene Daten weiterzugeben. Die Registrierung funktioniert ohne Angabe einer E-Mail-Adresse, stattdessen gibst du ein selbstgewähltes Pseudonym an. Falls du anonym bleiben möchtest, achte darauf, dass man durch das Pseudonym nicht auf deine Person zurückschließen kann.
       </p>
       
       <h3 class="my-4">Accountdaten</h3>
       
-      <p>Dein Benutzername wird in der Highscore öffentlich angezeigt und möglicherweise auch auf der Startseite. Es wird der Zeitpunkt der letzten Aktivität auf der Plattform gespeichert und ebenfalls mit angezeigt. Bei jeder Aufgabe ist zudem einsehbar, wieviele Nutzer sie bereits gelöst haben (ohne Rückführung auf einen einzelnen Benutzer). Im Profil lässt sich dein Account jederzeit vollständig löschen. Der Betreiber behält sich das Recht vor, ohne Ankündigung Accounts zu verändern oder zu löschen.
+      <p>Dein Benutzername wird in der Highscore öffentlich angezeigt und möglicherweise auch auf der Startseite. Es wird der Zeitpunkt der letzten Aktivität auf der Plattform gespeichert und ebenfalls mit angezeigt. Bei jeder Aufgabe ist zudem einsehbar, wie viele Nutzer sie bereits gelöst haben (ohne Rückführung auf einen einzelnen Benutzer). Im Profil lässt sich dein Account jederzeit vollständig löschen. Der Betreiber behält sich das Recht vor, ohne Ankündigung Accounts zu verändern oder zu löschen.
       </p>
       
       <h3 class="my-4">Hosting</h3>
@@ -196,7 +196,7 @@ require(path)((config) => {
       </p>
       
       <div class="jumbotron" style="padding-top:24px;margin-top:48px;border:#009670 solid 1px;background-image:url('background.jpg');">
-        <p>Neu hier? Starte deine Reise in die Welt des Hackings:
+        <p>Neu hier? Starte deine Reise in die Welt des Hacking:
         </p>
         <p class="text-center" style="margin-top:48px;">
           <a href="/register" class="btn btn-success btn-lg">Jetzt loslegen</a>
@@ -255,7 +255,7 @@ require(path)((config) => {
         raw: true,
       })
       users.forEach((user, i) => {
-        if (i > 0 && users[i - 1].score == user.score) {
+        if (i > 0 && users[i - 1].score === user.score) {
           user.rank = users[i - 1].rank
         } else {
           user.rank = i + 1
@@ -265,7 +265,7 @@ require(path)((config) => {
     })
 
     App.express.get('/api/map', async (req, res) => {
-      res.json(Object.keys(App.challenges.distance).filter((x) => x != 1337))
+      res.json(Object.keys(App.challenges.distance).filter((x) => x !== 1337))
     })
 
     /*App.express.get('/experiment', async (req, res) => {
@@ -351,7 +351,7 @@ require(path)((config) => {
         // Es ist viel schneller, die gesamte Datenbank neu aufzusetzen
         await LOCALAPP.db.sync({ force: true })
 
-        console.log('Lokale Datenbank syncronisiert')
+        console.log('Lokale Datenbank synchronisiert')
 
         console.log('Starte Import Räume ...')
 
@@ -429,11 +429,11 @@ require(path)((config) => {
           const solutions = byUser[user.id] ?? []
           let score = 0
           for (const solution of solutions) {
-            if (App.challenges.data.some((c) => c.id == solution)) {
+            if (App.challenges.data.some((c) => c.id === solution)) {
               score += 10 + (App.challenges.distance[solution] || 0)
             }
           }
-          if (user.score != score) {
+          if (user.score !== score) {
             hasChange = true
             console.log(`${user.score} -> ${score}`)
           }

@@ -228,55 +228,8 @@ require(path)((config) => {
     App.express.get('/hints', (req, res) => {
       res.renderPage({
         page: 'hints',
-        heading: 'Hinweise',
-        content: `
-          <div class="my-5"></div>
-           
-          <p>Es gibt verschiedene Möglichkeiten für dich, Hinweise zu den Aufgaben zu erhalten:
-          </p>
-          
-          
-          <div class="my-5"></div>
-          
-          <p>
-            <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" width="300px"></a>
-          </p>
-          
-          <p>Schaue auf unserem <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> vorbei. Dort kannst du Fragen stellen und dich mit anderen Hacker*innen austauschen.
-          </p>
-          
-          
-          <div class="my-5"></div>
-          
-          <p>
-            <a href="https://de.serlo.org/informatik/200247/hack-the-web" target="_blank"><img src="/info.png" width="400px"></a>
-          </p>
-          
-          <p>Auf der <a href="https://de.serlo.org/informatik/200247/hack-the-web" target="_blank">Info-Seite</a> findest du Antworten auf die häufigsten Fragen.
-          </p>
-          
-          <div class="my-5"></div>
-          
-          <p>
-            <img src="/mail.png" style="margin-left:-12px;">
-          </p>
-          
-          <p>Du kannst mir auch jederzeit direkt per Mail schreiben. Ich antworte auf alle Anfragen.
-          </p>
-          
-          
-          
-          <div class="my-5"></div>
-          
-          <p>Weitere nützliche Seiten:
-            <ul>
-              <li><a href="/contact">Kontakt / Impressum</a></li>
-              <li><a href="/privacy">Datenschutzerklärung</a></li>
-              <li><a href="/news">Neuigkeiten</a></li>
-              <li><a href="/links">Links</a></li>
-            </ul>
-          </p>
-        `,
+        heading: translations(config.locale, 'hints.heading'),
+        content: translations(config.locale, 'hints.content'),
       })
     })
 

@@ -233,11 +233,142 @@ module.exports = challanges_transelation = {
         "10": {
             "titel": "Hard work III",
             "html": `
-                <p>Mental arithmetic genius, focused — and also a mathematical sense. With this, you solve even complex problems in your own way.
+                <p>Mental arithmetic genius, focused — and also a mathematical sense. With this, you even solve complex problems in your own way.
                 </p>
                 
                 <p>This time, calculate the result of 1 + 2 + 3 + ... + 998 + 999 + 1000.
                 </p>
+            `
+        },
+        "15": {
+            "titel": "Username",
+            "html": `
+                <p>The answer to this challenge is simply your username. However, it may be that your input gets a little mixed up when you submit it. Can you find out what you have to enter?
+                </p>
+            `
+        },
+        "16": {
+            "titel": "Username II",
+            "html": `
+                <p>In computer science, everything revolves around data processing. A <em>function</em> takes an input value (e.g. your answer) and generates an output value (the answer as it arrives here).
+                </p>
+                
+                <p>A function can swap, change, omit, etc. values — anything you want. What does this function do to your input? The answer to this challenge is again your username.
+                </p>
+            `
+        },
+        "17": {
+            "titel": "Username III",
+            "html": `
+                <p>Another round: The answer to this challenge is again your username. However, your input is again mixed up before the evaluation. What should the input be this time?
+                </p>
+            `
+        },
+        "18": {
+            "titel": "ROT13",
+            "html": `
+              <p>You have received an encrypted message! It looks like complete nonsense. Your hacker's eye is in demand! You look wonderful when you think hard.
+              </p>
+              
+              <p>Drag the slider to shift the letters in the alphabet.</p>
+              
+              <p style="word-wrap:break-word" class="my-4" id="cipher">
+              </p>
+              
+              <input id="slider" type="range" min="0" max="26" step="1" style="width:500px" value="0" onchange="change()" oninput="change()"/>
+              
+              <script>
+                const message = 'terng lbh unir fhpprffshyyl qrpbqrq gur grkg nf n erjneq lbh abj trg gur nafjre naq vg vf fcvrtryovyq    (gur trezna jbeq sbe zveebe vzntr)'
+                
+                const slider = document.getElementById('slider')
+                
+                const cipher = document.getElementById('cipher')
+                
+                function translate(n) {
+                  cipher.innerHTML = message.split('').map(c => {
+                    if (c === ' ' || c === '(' || c === ')') return c
+                    return String.fromCharCode(((c.charCodeAt() - 97 + n) % 26) + 97)
+                  }).join('')
+                }
+                
+                function change() {
+                  translate(parseInt(slider.value))
+                }
+                
+                change()
+                
+                
+              </script>
+            `
+        },
+        "21": {
+            "titel": "Fingerzeig",
+            "html": `
+                <p>
+                    It is super cool to have helpful people like you. It makes everyday life so much more pleasant when you don't know the way or forget your wallet at the checkout :)
+                </p>
+                
+                <p> At the same time, it is no problem to ask for help. We all have times when we need help.
+                </p>
+                
+                <p>
+                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" width="300px" alt="discord"></a>
+                </p>
+              
+                <p>On the <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> of Hack the Web, you have the possibility to find hints or ask questions yourself. Click on the logo to join the server. In the forum you will find a post with the title of this task. There you will find your answer.
+                </p>
+                
+                <p>
+                Note: Hack the Web is a German website, which is why the Discord server is in German. Please write only in German on the server. But with the help of a translator, you should be able to find the answer anyway ;)
+                </p>
+            `
+        },
+        "23": {
+            "titel": "Grey on grey",
+            "html": `
+                <p>Oh no, someone has taken away all the contrast in this picture! All that's left is gray:
+                </p>
+                
+                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" width="300" alt="challenge 23"></a>
+                </p>
+                
+                <p>[<a href="/chals/chal23.png" download="grau.png">Download picture</a>]</p>
+                
+                <p>The information is still present in the image — but so faint that it is no longer visible to the eye. With a method called <a href="https://threshold.imageonline.co/" target="_blank">Threshold</a>, these subtle differences can be amplified and made visible to humans again.</p>
+                
+                <p>What is the first name of the person who is depicted in the picture?</p>
+                </p>
+            `
+        },
+        "24": {
+            "titel": "In a blick of an eye",
+            "html": `
+              <p id="poper">Don't blink! The answer to this challenge is revealed in a flash.</p>
+              </p>
+              <p>Note: the answer is not in English so pay close attention</p>
+              
+              <script>
+                setTimeout(function(){
+                  document.getElementById("poper").innerHTML = "The answer is            ${secrets(
+                    'chal_24'
+                    )}"
+                  setTimeout(function(){
+                    document.getElementById("poper").innerHTML = "Oh. This was fast. I hope you were able to read it."
+                  }, 150)
+                }, 1500)
+              </script>
+            `
+        },
+        "25": {
+            "titel": "Russian Doll",
+            'html': `
+              <p>When you zip a file, it becomes smaller and requires less space. When you zip it again, does it become even smaller?</p>
+              </p>
+              
+              <p>Let try it! I ziped the answer a bunch of times: This is the <a href="/chals/antwort25.zip">File</a>. In it, there is the answer to this challenge. And no: If you zip a file more than once, it becomes only bigger.
+              </p>
+              
+              <p>Note: The word "antwort" means "answer" in german</p>
             `
         }
     },
@@ -476,6 +607,130 @@ module.exports = challanges_transelation = {
               </p>
               
               <p>Berechne diesmal das Ergebnis von 1 + 2 + 3 + ... + 998 + 999 + 1000.
+              </p>
+            `
+        },
+        "15": {
+            "titel": "Benutzername",
+            "html": `
+                <p>Die Antwort zu dieser Aufgabe ist ganz einfach dein Benutzername. Allerdings kann es sein, dass deine Eingabe beim Absenden etwas durcheinander gerät. Findest du heraus, was du eingeben musst?
+                </p>
+            `
+        },
+        "16": {
+            "titel": "Benutzername II",
+            "html": `
+              <p>In der Informatik dreht sich alles um Datenverarbeitung. Eine <em>Funktion</em> nimmt dabei einen Eingabewert (z.B. deine Antwort) und erzeugt daraus einen Ausgabewert (die Antwort, wie sie hier ankommt).
+              </p>
+              
+              <p>Eine Funktion kann Werte vertauschen, verändern, auslassen, etc. - alles Mögliche, wie man will. Was macht diese Funktion hier mit deiner Eingabe? Die Antwort zu dieser Aufgabe ist wieder dein Benutzername.
+              </p>
+            `
+        },
+        "17": {
+            "titel": "Benutzername III",
+            "html": `
+              <p>Eine weitere Runde: Die Antwort auf diese Aufgabe ist wieder dein Benutzername. Allerdings wird deine Eingabe vor der Auswertung wieder durcheinander gebracht. Wie muss diesmal die Eingabe lauten?
+              </p>
+            `
+        },
+        "18": {
+            "titel": "ROT13",
+            "html": `
+              <p>Du hast eine verschlüsselte Nachricht erhalten! Sie sieht wie kompletter Nonsens aus. Dein Hacker-Blick ist gefragt! Du siehst wunderbar aus, wenn du scharf nachdenkst.
+              </p>
+              
+              <p>Ziehe den Slider, um die Buchstaben im Alphabet zu verschieben.</p>
+              
+              <p style="word-wrap:break-word" class="my-4" id="cipher">
+              </p>
+              
+              <input id="slider" type="range" min="0" max="26" step="1" style="width:500px" value="0" onchange="change()" oninput="change()"/>
+              
+              <script>
+                const message = 'fhcre qh unfg qra grkg resbytervpu ragfpuyhrffryg nyf orybuahat reunryfg qh aha qvr nagjbeg haq fvr ynhgrg fcvrtryovyq'
+                
+                const slider = document.getElementById('slider')
+                
+                const cipher = document.getElementById('cipher')
+                
+                function translate(n) {
+                  cipher.innerHTML = message.split('').map(c => {
+                    if (c === ' ') return c
+                    return String.fromCharCode(((c.charCodeAt() - 97 + n) % 26) + 97)
+                  }).join('')
+                }
+                
+                function change() {
+                  translate(parseInt(slider.value))
+                }
+                
+                change()
+                
+                
+              </script>
+            `
+        },
+        "21": {
+            "titel": "Fingerzeig",
+            "html": `
+              <p>
+                Es ist super cool, hilfsbereite Menschen wie dich zu haben. Das macht den Alltag so viel angenehmer, wenn man mal den Weg nicht weiß oder an der Kasse seinen Geldbeutel vergessen hat :)
+              </p>
+              
+              <p>Gleichzeitig ist es auch kein Problem, um Hilfe zu bitten. Wir alle kommen irgendwann mal nicht weiter.
+              </p>
+                  
+              <p>
+                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" width="300px" alt="discord"></a>
+              </p>
+              
+              <p>Auf dem <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> von Hack The Web hast du die Möglichkeit, Hinweise zu finden oder selbst Fragen zu stellen. Klicke auf das Logo, um dem Server beizutreten. Im Forum findest du einen Post mit dem Titel dieser Aufgabe. Dort findest du deine Antwort.
+              </p>
+            `
+        },
+        "23": {
+            "titel": "Grau auf Grau",
+            "html": `
+                <p>Oje, bei diesem Bild hat jemand den ganzen Kontrast weggenommen! Übrig geblieben ist nur noch grau:
+                </p>
+                
+                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" width="300" alt="challenge 23"></a>
+                </p>
+                
+                <p>[<a href="/chals/chal23.png" download="grau.png">Bild herunterladen</a>]</p>
+                
+                <p>Die Informationen sind immer noch im Bild vorhanden - allerdings so schwach, dass sie mit dem Auge nicht mehr zu sehen sind. Mit einer Methode namens <a href="https://threshold.imageonline.co/" target="_blank">Threshold</a> können diese feinen Unterschiede verstärkt und wieder für den Menschen sichtbar gemacht werden.</p>
+                
+                <p>Wie lautet der Vorname der abgebildeten Person?
+                </p>
+            `
+        },
+        "24": {
+            "titel": "Nicht blinzeln",
+            "html": `
+              <p id="poper">Achtung, nicht blinzeln!
+              </p>
+              
+              <script>
+                setTimeout(function(){
+                  document.getElementById("poper").innerHTML = "Die Antwort auf diese Aufgabe lautet            ${secrets(
+                    'chal_24'
+                    )}"
+                  setTimeout(function(){
+                    document.getElementById("poper").innerHTML = "Ups, das ging schnell."
+                  }, 150)
+                }, 1500)
+              </script>
+            `
+        },
+        "25": {
+            "titel": "Russische Puppen",
+            "html": `
+              <p>Wenn man eine Datei zipt, dann wird sie kleiner und braucht weniger Speicherplatz. Wenn man eine Zip-Datei nochmal zipt, wird sie dann noch kleiner?
+              </p>
+              
+              <p>Warum nicht ausprobieren? Ich habe die Antwort mal ordentlich gezipt: Hier ist die <a href="/chals/antwort25.zip">Datei</a>. Darin findet sich die Lösung zu dieser Aufgabe. Und nein, mehrfaches Zippen bringt nichts und macht die Datei sogar größer.
               </p>
             `
         }

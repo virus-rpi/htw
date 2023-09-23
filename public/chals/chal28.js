@@ -1,8 +1,7 @@
-
-var object = document.getElementById("text")
+const object = document.getElementById("text");
 
 function flipColor() {
-  if (object.style.color == "white") {
+  if (object.style.color === "white") {
     object.style.color = "red"
   } else {
     object.style.color = "white"
@@ -17,13 +16,13 @@ function run() {
 run()
 
 function countdown() {
-  var counter = document.getElementById('counter')
+  const counter = document.getElementById('counter');
   if (counter) {
     const val = parseInt(counter.innerHTML)
     if (!isNaN(val) && val > 0) {
       counter.innerHTML = val - 1
     } else {
-      document.getElementById('skipp').innerHTML = 'Werbung jetzt überspringen'
+      document.getElementById('skipp').innerHTML = navigator.language.startsWith("de")?'Werbung jetzt überspringen':'Skip Ad Now'
       document.getElementById('skipp').onclick = function () {
         document.getElementById('banner').style.display = 'none'
       }

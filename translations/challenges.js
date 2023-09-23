@@ -278,6 +278,7 @@ module.exports = challanges_transelation = {
               <input id="slider" type="range" min="0" max="26" step="1" style="width:500px" value="0" onchange="change()" oninput="change()"/>
               
               <script>
+                // noinspection SpellCheckingInspection
                 const message = 'terng lbh unir fhpprffshyyl qrpbqrq gur grkg nf n erjneq lbh abj trg gur nafjre naq vg vf fcvrtryovyq    (gur trezna jbeq sbe zveebe vzntr)'
                 
                 const slider = document.getElementById('slider')
@@ -287,7 +288,7 @@ module.exports = challanges_transelation = {
                 function translate(n) {
                   cipher.innerHTML = message.split('').map(c => {
                     if (c === ' ' || c === '(' || c === ')') return c
-                    return String.fromCharCode(((c.charCodeAt() - 97 + n) % 26) + 97)
+                    return String.fromCharCode(((c.charCodeAt(0) - 97 + n) % 26) + 97)
                   }).join('')
                 }
                 
@@ -312,7 +313,7 @@ module.exports = challanges_transelation = {
                 </p>
                 
                 <p>
-                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" width="300px" alt="discord"></a>
+                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" style="max-width: 300px;" alt="discord"></a>
                 </p>
               
                 <p>On the <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> of Hack the Web, you have the possibility to find hints or ask questions yourself. Click on the logo to join the server. In the forum you will find a post with the title of this task. There you will find your answer.
@@ -329,7 +330,7 @@ module.exports = challanges_transelation = {
                 <p>Oh no, someone has taken away all the contrast in this picture! All that's left is gray:
                 </p>
                 
-                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" width="300" alt="challenge 23"></a>
+                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" style="max-width: 300px;" alt="challenge 23"></a>
                 </p>
                 
                 <p>[<a href="/chals/chal23.png" download="grau.png">Download picture</a>]</p>
@@ -365,10 +366,67 @@ module.exports = challanges_transelation = {
               <p>When you zip a file, it becomes smaller and requires less space. When you zip it again, does it become even smaller?</p>
               </p>
               
-              <p>Let try it! I ziped the answer a bunch of times: This is the <a href="/chals/antwort25.zip">File</a>. In it, there is the answer to this challenge. And no: If you zip a file more than once, it becomes only bigger.
+              <p>Let try it! I zipped the answer a bunch of times: This is the <a href="/chals/antwort25.zip">File</a>. In it, there is the answer to this challenge. And no: If you zip a file more than once, it becomes only bigger.
               </p>
               
               <p>Note: The word "antwort" means "answer" in german</p>
+            `
+        },
+        "26": {
+            "titel": "Time-machine",
+            "html": `
+              <p>You look like someone who is interested in backstories! There are a few exciting aspects to Hack The Web's origin story, and here's a little history lesson just for you.
+              </p>
+              
+              <p>The concept of challenges arranged in a map has been adopted by Hack The Web from <a href="https://hacker.org/" target="_blank">Hacker.org</a>. This site is a great inspiration, but it didn't fall from the sky either. When the Challenges were published in 2008, a project that could be described as a hacker community had been on the domain for many years.
+              </p>
+              
+              <p>Thanks to the Internet Archive, we can travel back in time, and you can experience how this community got along.
+              </p>
+              
+              <p>Here you can see a version of hacker.org from the <a href="https://web.archive.org/web/19961218220409/http://hacker.org/" target="_blank">December 18, 1996</a>.
+              </p>
+              
+              <iframe src="https://web.archive.org/web/19961218220409/http://hacker.org/" style="width:100%;height:800px;"></iframe>
+              
+              <p>Your answer is the operator's email address.
+              </p>
+            `
+        },
+        "27": {
+            "titel": "Tactility",
+            "html": `
+            <p>Carefully key over the field and read the answer:
+            </p>
+            
+            <p><svg id="chal27"></svg></p>
+              
+            <script src="/svg.min.js"></script>
+            <script src="/chals/chal27.js"></script>
+            
+            <p>Note: The answer is in German, so don't be confused if the word doesn't make sense to you.</p>
+           `
+        },
+        "28": {
+            "titel": "Ads",
+            "html": `
+              <p>Annoying advertising banners that block the content - who hasn't seen that? In this case too, an advertisement obscures the answer to the challenge.
+              </p>
+              
+              <p>Fortunately, modern browsers offer tools with which you can edit a website and thus remove one or two annoying elements. (If these are not available: <a href="#" onclick="(function () { const script=document.createElement('script');script.src='https://x-ray-goggles.mouse.org/webxray.js';script.className='webxray';script.setAttribute('data-lang','en-US');script.setAttribute('data-baseuri','https://x-ray-goggles.mouse.org');document.body.appendChild(script);}())">Load X-Ray</a>)
+              </p>
+              
+              <div style="position:absolute;width:1000px;height:1000px;background-color:green" id="banner">
+                <span style="font-size:100px" id="text">Congratulations! You have won!</span>
+                <div style="margin-top:20px; border: 2px solid black; width: 350px; margin-left: 40px; cursor: pointer; padding: 8px" id="skipp">Skip in <span id="counter">4568</span> seconds ...</div>
+              </div>
+              
+              <p>The answer to this challenge is <span id="solution"></span>.
+              </p>
+              
+              <script src="/chals/chal28.js"></script>
+              <!--suppress JSDeprecatedSymbols -->
+              <script>document.getElementById("solution").innerHTML = ' ' + atob('${Buffer.from(secrets('chal_28')).toString('base64')}')</script>
             `
         }
     },
@@ -648,6 +706,7 @@ module.exports = challanges_transelation = {
               <input id="slider" type="range" min="0" max="26" step="1" style="width:500px" value="0" onchange="change()" oninput="change()"/>
               
               <script>
+                // noinspection SpellCheckingInspection
                 const message = 'fhcre qh unfg qra grkg resbytervpu ragfpuyhrffryg nyf orybuahat reunryfg qh aha qvr nagjbeg haq fvr ynhgrg fcvrtryovyq'
                 
                 const slider = document.getElementById('slider')
@@ -657,7 +716,7 @@ module.exports = challanges_transelation = {
                 function translate(n) {
                   cipher.innerHTML = message.split('').map(c => {
                     if (c === ' ') return c
-                    return String.fromCharCode(((c.charCodeAt() - 97 + n) % 26) + 97)
+                    return String.fromCharCode(((c.charCodeAt(0) - 97 + n) % 26) + 97)
                   }).join('')
                 }
                 
@@ -682,7 +741,7 @@ module.exports = challanges_transelation = {
               </p>
                   
               <p>
-                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" width="300px" alt="discord"></a>
+                <a href="https://discord.gg/9zDMZP9edd" target="_blank"><img src="/discord.png" style="max-width: 300px;" alt="discord"></a>
               </p>
               
               <p>Auf dem <a href="https://discord.gg/9zDMZP9edd" target="_blank">Discord-Server</a> von Hack The Web hast du die Möglichkeit, Hinweise zu finden oder selbst Fragen zu stellen. Klicke auf das Logo, um dem Server beizutreten. Im Forum findest du einen Post mit dem Titel dieser Aufgabe. Dort findest du deine Antwort.
@@ -695,7 +754,7 @@ module.exports = challanges_transelation = {
                 <p>Oje, bei diesem Bild hat jemand den ganzen Kontrast weggenommen! Übrig geblieben ist nur noch grau:
                 </p>
                 
-                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" width="300" alt="challenge 23"></a>
+                <p><a href="/chals/chal23.png"><img src="/chals/chal23.png" style="max-width: 300px;" alt="challenge 23"></a>
                 </p>
                 
                 <p>[<a href="/chals/chal23.png" download="grau.png">Bild herunterladen</a>]</p>
@@ -727,11 +786,66 @@ module.exports = challanges_transelation = {
         "25": {
             "titel": "Russische Puppen",
             "html": `
-              <p>Wenn man eine Datei zipt, dann wird sie kleiner und braucht weniger Speicherplatz. Wenn man eine Zip-Datei nochmal zipt, wird sie dann noch kleiner?
+              <p>Wenn man eine Datei zippt, dann wird sie kleiner und braucht weniger Speicherplatz. Wenn man eine Zip-Datei nochmal zippt, wird sie dann noch kleiner?
               </p>
               
-              <p>Warum nicht ausprobieren? Ich habe die Antwort mal ordentlich gezipt: Hier ist die <a href="/chals/antwort25.zip">Datei</a>. Darin findet sich die Lösung zu dieser Aufgabe. Und nein, mehrfaches Zippen bringt nichts und macht die Datei sogar größer.
+              <p>Warum nicht ausprobieren? Ich habe die Antwort mal ordentlich gezippt: Hier ist die <a href="/chals/antwort25.zip">Datei</a>. Darin findet sich die Lösung zu dieser Aufgabe. Und nein, mehrfaches Zippen bringt nichts und macht die Datei sogar größer.
               </p>
+            `
+        },
+        "26": {
+            "titel": "Zeitmaschine",
+            "html": `
+              <p>Du siehst aus wie jemand, der sich für Backstories interessiert! Die Entstehungsgeschichte von Hack The Web hat ein paar spannende Aspekte und hier gibt es eine kleine Geschichtsstunde nur für dich.
+              </p>
+              
+              <p>Das Konzept von Aufgaben (<em>Challenges</em>), die in einer Karte angeordnet sind, hat Hack The Web von <a href="https://hacker.org/" target="_blank">Hacker.org</a> übernommen. Diese Seite ist eine großartige Inspiration, aber auch sie ist nicht vom Himmel gefallen. Als die Challenges im Jahr 2008 veröffentlicht wurden, fand sich auf der Domain schon viele Jahre ein Projekt, dass als Hacker-Community beschrieben werden könnte.
+              </p>
+              
+              <p>Dank des Internet-Archives können wir in der Zeit zurückreisen und du kannst erleben, wie sich diese Community verstanden hat.
+              </p>
+              
+              <p>Hier siehst du eine Version von hacker.org vom <a href="https://web.archive.org/web/19961218220409/http://hacker.org/" target="_blank">18. Dezember 1996</a>.
+              </p>
+              
+              <iframe src="https://web.archive.org/web/19961218220409/http://hacker.org/" style="width:100%;height:800px;"></iframe>
+              
+              <p>Deine Antwort ist die E-Mail-Adresse des Betreibers.
+              </p>
+            `
+        },
+        "27": {
+            "titel": "Fingerspitzengefühl",
+            "html": `
+              <p>Taste vorsichtig über das Feld und lese die Antwort ab:
+              </p>
+              
+              <p><svg id="chal27"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal27.js"></script>
+            `
+        },
+        "28": {
+            "titel": "Werbung",
+            "html": `
+              <p>Nervige Werbebanner, die einen den Inhalt versperren - wer kennt das nicht? Auch in diesem Fall verdeckt eine Werbung die Antwort auf die Aufgabe.
+              </p>
+              
+              <p>Zum Glück bieten moderne Browser Werkzeuge an, mit denen man eine Website bearbeiten kann und damit auch das eine oder andere nervige Element verschwinden lässt. (Falls diese nicht zur Verfügung stehen: <a href="#" onclick="(function () { const script=document.createElement('script');script.src='https://x-ray-goggles.mouse.org/webxray.js';script.className='webxray';script.setAttribute('data-lang','en-US');script.setAttribute('data-baseuri','https://x-ray-goggles.mouse.org');document.body.appendChild(script);}())">X-Ray laden</a>)
+              </p>
+              
+              <div style="position:absolute;width:1000px;height:1000px;background-color:green" id="banner">
+                <span style="font-size:100px" id="text">Herzlichen Glückwunsch! Sie haben gewonnen!</span>
+                <div style="margin-top:20px; border: 2px solid black; width: 350px; margin-left: 40px; cursor: pointer; padding: 8px" id="skipp">Überspringe die Werbung in <span id="counter">4568</span> Sekunden ...</div>
+              </div>
+              
+              <p>Die Antwort zu dieser Aufgabe lautet<span id="solution"></span>.
+              </p>
+              
+              <script src="/chals/chal28.js"></script>
+              <!--suppress JSDeprecatedSymbols -->
+              <script>document.getElementById("solution").innerHTML = ' ' + atob('${Buffer.from(secrets('chal_28')).toString('base64')}')</script>
             `
         }
     },

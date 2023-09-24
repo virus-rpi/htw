@@ -855,6 +855,136 @@ module.exports = challanges_transelation = {
               <p>The first letter of the text would be a D, and the last letter of the text would be an S.
               </p>
             `
+        },
+        "51": {
+            "titel": "Binary",
+            "html": `
+              <p>You've probably heard of the binary system. It is the language of computers, which consists of 1s and 0s.
+              </p>
+              
+              <p>Even if you've never worked with it before — with a little logical thinking, you'll quickly get started.
+              </p>
+              
+              <p>To help you, you can see the first six powers of two here. You can turn them on or off when you click on them. All active numbers are added to the result.
+              </p>
+              
+              <p>Enter the number 7 and submit it.
+              </p>
+              
+              <p><svg id="binary"></svg></p>
+              
+              <p class="d-none"><code>Binary number: <span id="output">0</span></code></p>
+              
+              <p style="margin-top:32px;" id="submit"><button onclick="submit()">Submit</button></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal51_2.js"></script>
+              
+              <style>
+                .hoverEffect:hover {
+                  cursor:pointer;
+                  opacity: 0.9;
+                }
+              </style>
+            `
+        },
+        "52": {
+            "titel": "Binär II",
+            "html": `
+              <p>Well done! Now set the number 45.
+              </p>
+              
+              <p><svg id="binary"></svg></p>
+              
+              <p class="d-none"><code>Binary number: <span id="output">0</span></code></p>
+              
+              <p style="margin-top:32px;" id="submit"><button onclick="submit()">Submit</button></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal51_2.js"></script>
+              
+              <style>
+                .hoverEffect:hover {
+                  cursor:pointer;
+                  opacity: 0.9;
+                }
+              </style>
+            `
+        },
+        "53": {
+            "titel": "Quiz",
+            "html": `
+              <p>Someone just ran out of creativity with this quiz.
+              </p>
+              
+              <hr />
+              
+              <p class="my-4">Click on the X:</p>
+              
+              <p>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans1">X</button>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans2">.</button>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans3">.</button>
+              </p>
+              
+              <div class="progress my-4">
+                <div class="progress-bar" role="progressbar" style="width: 0;" id="progress"></div>
+              </div>
+              
+              <p id="status"></p>
+              
+              
+              <script src="/chals/chal53.js"></script>
+            `
+        },
+        "55": {
+            "titel": "Smiley",
+            "html": `
+                  <p>Glad you're here and trying new things. That's always pretty exciting.
+                  </p>
+                  
+                  <p>One such exciting thing is programming. In basic terms, programming works like this: You write a text, and the computer then reacts to it. You can insert and start programs in this text field. An example is already entered.
+                  </p>
+                  
+                  <p><code><textarea rows="10" cols="50" id="code-area">alert('Hello, World!')</textarea></code></p>
+                  
+                  <p><button class="btn btn-primary btn-sm" onClick="runCode()">Run</button></p>
+                  
+                  <script>
+                    function runCode() {
+                      const el = document.getElementById('code-area')
+                      const code = el.value
+                      try {
+                        eval(code)
+                      } catch (e) {
+                        alert(e)
+                      }
+                    }
+                  </script>
+                  
+                  <p>If you paste the following program in the form of a smiley into the text field above and run it, you will see the answer.
+                  </p>
+                  
+                  <pre class="bg-dark p-3"><code>                  const d = [68,
+                         105,               101,
+                     32,                         65,
+                  110,                             116,
+                119,                                 111,
+              114,        116,            32,         108,
+             97,          117,            116,         101,
+            116,           32,            75,           111,
+            114,                                         111,
+            115,                                         101,
+            110,     115                          ,      101,
+             105      ,46                        ];     const
+              e        = d                   .map(       (x 
+               )=>       String.fromCharCode(x))      .join
+                (''                                    )
+                  /*                                 x
+                    x                             x
+                       xxxxx                xxx*/
+                             window.alert(e)</code></pre>
+                `
         }
     },
     "de": {
@@ -1700,6 +1830,136 @@ module.exports = challanges_transelation = {
               <p>Der erste Buchstabe des Texts wäre damit ein D, der letzte Buchstabe des Texts ein S.
               </p>
             `
+        },
+        "51": {
+            "titel": "Binär",
+            "html": `
+              <p>Du hast sicherlich schon vom Binärsystem gehört. Es ist die Sprache der Computer, welche aus 1 und 0 besteht.
+              </p>
+              
+              <p>Selbst wenn du noch nie damit gearbeitet hast - mit ein wenig logischem Denken findest du schnell den Einstieg.
+              </p>
+              
+              <p>Als Hilfestellung siehst du hier die ersten 6 Zweierpotenzen. Du kannst sie an- oder ausschalten, wenn du sie anklickst. Alle aktiven Zahlen werden zum Ergebnis addiert.
+              </p>
+              
+              <p>Stelle die Zahl 7 ein und schicke sie ab.
+              </p>
+              
+              <p><svg id="binary"></svg></p>
+              
+              <p class="d-none"><code>Binärzahl: <span id="output">0</span></code></p>
+              
+              <p style="margin-top:32px;" id="submit"><button onclick="submit()">Abschicken</button></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal51_2.js"></script>
+              
+              <style>
+                .hoverEffect:hover {
+                  cursor:pointer;
+                  opacity: 0.9;
+                }
+              </style>
+            `
+        },
+        "52": {
+            "titel": "Binär II",
+            "html": `
+              <p>Das hast du sehr gut gemacht! Stelle nun die Zahl 45 ein.
+              </p>
+              
+              <p><svg id="binary"></svg></p>
+              
+              <p class="d-none"><code>Binärzahl: <span id="output">0</span></code></p>
+              
+              <p style="margin-top:32px;" id="submit"><button onclick="submit()">Abschicken</button></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal51_2.js"></script>
+              
+              <style>
+                .hoverEffect:hover {
+                  cursor:pointer;
+                  opacity: 0.9;
+                }
+              </style>
+            `
+        },
+        "53": {
+            "titel": "Quiz",
+            "html": `
+              <p>Bei diesem Quiz ist jemandem doch glatt die Kreativität ausgegangen.
+              </p>
+              
+              <hr />
+              
+              <p class="my-4">Klicke auf das X:</p>
+              
+              <p>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans1">X</button>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans2">.</button>
+                <button type="button" class="btn btn-secondary mb-2 mr-5" id="ans3">.</button>
+              </p>
+              
+              <div class="progress my-4">
+                <div class="progress-bar" role="progressbar" style="width: 0;" id="progress"></div>
+              </div>
+              
+              <p id="status"></p>
+              
+              
+              <script src="/chals/chal53.js"></script>
+            `
+        },
+        "55": {
+            "titel": "Smiley",
+            "html": `
+                  <p>Schön, dass du hier bist und neue Dinge ausprobierst. Das ist immer ziemlich aufregend.
+                  </p>
+                  
+                  <p>Eine solche aufregende Sache ist das Programmieren. Ganz vereinfacht funktioniert Programmieren so: Man schreibt einen Text und der Computer reagiert dann darauf. In dieses Textfeld kannst du Programme einfügen und starten. Ein Beispiel ist bereits eingegeben.
+                  </p>
+                  
+                  <p><code><textarea rows="10" cols="50" id="code-area">alert('Hallo, Welt!')</textarea></code></p>
+                  
+                  <p><button class="btn btn-primary btn-sm" onClick="runCode()">Programm starten</button></p>
+                  
+                  <script>
+                    function runCode() {
+                      const el = document.getElementById('code-area')
+                      const code = el.value
+                      try {
+                        eval(code)
+                      } catch (e) {
+                        alert(e)
+                      }
+                    }
+                  </script>
+                  
+                  <p>Wenn du folgendes Programm in Form eines Smileys in das Textfeld oben einfügst und ausführst, wird dir die Antwort angezeigt.
+                  </p>
+                  
+                  <pre class="bg-dark p-3"><code>                  const d = [68,
+                         105,               101,
+                     32,                         65,
+                  110,                             116,
+                119,                                 111,
+              114,        116,            32,         108,
+             97,          117,            116,         101,
+            116,           32,            75,           111,
+            114,                                         111,
+            115,                                         101,
+            110,     115                          ,      101,
+             105      ,46                        ];     const
+              e        = d                   .map(       (x 
+               )=>       String.fromCharCode(x))      .join
+                (''                                    )
+                  /*                                 x
+                    x                             x
+                       xxxxx                xxx*/
+                             window.alert(e)</code></pre>
+                `
         }
     },
 }

@@ -428,6 +428,177 @@ module.exports = challanges_transelation = {
               <!--suppress JSDeprecatedSymbols -->
               <script>document.getElementById("solution").innerHTML = ' ' + atob('${Buffer.from(secrets('chal_28')).toString('base64')}')</script>
             `
+        },
+        "29": {
+            "titel": "GPS-Code",
+            "html": `
+                <p>The first letters of these words are the answer to this challenge:  
+                </p>
+                
+                <p>
+                    52.7073, 8.5031<br>
+                    48.63253, 12.85515<br>
+                    50.9761, 8.8677<br>
+                    53.2724, 12.824<br>
+                    48.0336, 7.7649<br>
+                    49.59637, 11.11833<br>
+                    53.679, 10.6947
+                </p>
+            `
+        },
+        "30": {
+            "titel": "UNIX timestamp",
+            "html": `
+            <p>In which year was the date 817876800?
+            </p>
+            `
+        },
+        "31": {
+            "titel": "Calculator III",
+            "html": `
+              <p>It's time for a new calculator:
+              </p>
+              
+              <br>
+              
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal31.js"></script>
+              
+              <br>
+              
+              <p>This calculator consists of a "tube" that is open on the right. You can use the number keys to push individual numbers into this tube.
+              </p>
+              
+              <p>To generate more numbers, you have to do math. There are four basic arithmetic operations. With these keys, the two numbers on the far right are taken out of the tube and added, subtracted, multiplied or divided together. Try this and see what happens!
+              </p>
+              
+              <p>There are two special commands: <strong>drop</strong> removes the last number from the tube (i.e. the number on the far right), <strong>dup</strong> adds the last number again (duplicates).
+              </p>
+              
+              <p>Calculate the result 1000:
+              </p>
+              
+              <p><img src="/chals/chal31_result.png" style="max-width: 300px" alt="chal31"></p>
+            `
+        },
+        "32": {
+            "titel": "Calculator IV",
+            "html": `
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal31.js"></script>
+              
+              <p>This time, calculate the number 1337.
+              </p>
+            `
+        },
+        "33": {
+            "titel": "Calculator V",
+            "html": `
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal33.js"></script>
+              
+              <p>Calculate the number 100. However, this time a few keys are missing.
+              </p>
+            `
+        },
+        "36": {
+            "titel": "Username V",
+            "html": `
+                <p>It has never been easier to build your own website and put it online. Hence, the task for you: create a website that contains exactly your username (no HTML, no spaces, just your username!) and enter the URL as the answer:
+                </p>
+            `
+        },
+        "37": {
+            "titel": "Emoji",
+            "html": `
+              <p>Nothing in the world is as beautiful as your smile. I could look at it all day.
+              </p>
+              
+              <p>Send me a smile. Your answer is this emoji:
+              </p>
+              
+              <p><img src="/chals/chal37.png" style="max-width: 80px" alt="chal37"/></p>
+            `
+        },
+        "38": {
+            "titel": "Metadata",
+            "html": `
+              <p>Oh, how sweet! Look at this photo:
+              </p>
+              
+              <p><img src="/chals/chal38-en.jpg" alt="chal38-en"></p>
+              
+              <p>In addition to what you can see in the photo, many image files contain other information, such as the camera model or the ISO number. These are the so-called <em>EXIF-Tags</em> and unfortunately these are not immediately visible. However, there are some tools that can show you these tags. And there you will find the answer.</p>
+            `
+        },
+        "39": {
+            "titel": "Flags",
+            "html": `
+              <p>Flags can have many meanings: They exist for countries and territories, but you can also use them as signals and alphabets. This potential is fully exploited in shipping.
+              </p>
+              
+              <p>Watch<a href="/chals/chal39.mp4">this video</a>. What word do the letters of the signal flags make?
+              </p>
+              
+              <p>Note: The answer is in German, but you don't need to understand it to solve the challenge.
+              </p>
+            `
+        },
+        "40": {
+            "titel": "Terminal",
+            "html": `
+              <p>Black screen, white font, cryptic characters and complicated commands...also known by the name <em>Terminal</em>.
+              </p>
+              
+              <p>Behind this is a text-based way to interact with a computer. Instead of clicking with the mouse, the desired actions are entered and carried out using commands. And it's not that big of a rocket science!
+              </p>
+              
+              <p>This task contains a lightweight terminal that manages a file system. There are various directories and files — one of these files contains the answer to this task.
+              </p>
+              
+              <p>To move and orient yourself in the file system, there are four commands:
+              <ul>
+                <li><code>ls</code><br>This command shows the contents of the directory you are currently in.
+                </li>
+                <li><code>pwd</code><br>This command shows you the path of the current directory.
+                </li>
+                <li><code>cd DIR</code><br>This command moves you to a new directory whose name you write instead of DIR. There is a special variant to get back up a level <code>cd ..</code>
+                </li>
+                <li><code>cat FILE</code><br>This command displays the contents of a file in the current directory. Instead of FILE, write the name of the file.
+                </li>
+              </ul>
+              </p>
+              
+              <p>Start your search for the answer in the file<strong>GOP/053/vjer</strong>:
+              </p>
+              
+              <div id="terminal" class="my-4"></div>
+              
+              <script src="/seedrandom.min.js"></script>
+              <script src="/chals/terminal.js"></script>
+              <script src="/chals/chal40.js"></script>
+              
+              <p>Example: Enter the following commands one after the other<br>
+                <code>cd GOP</code><br>
+                <code>cd 239</code><br>
+                <code>ls</code><br>
+                <code>cat yley</code><br>
+                <code>cd ..</code><br>
+                <code>pwd</code>
+              </p>
+            `
         }
     },
     "de": {
@@ -846,6 +1017,174 @@ module.exports = challanges_transelation = {
               <script src="/chals/chal28.js"></script>
               <!--suppress JSDeprecatedSymbols -->
               <script>document.getElementById("solution").innerHTML = ' ' + atob('${Buffer.from(secrets('chal_28')).toString('base64')}')</script>
+            `
+        },
+        "29": {
+            "titel": "GPS-Code",
+            "html": `
+              <p>Die Anfangsbuchstaben folgender deutscher Orte ergeben die Antwort:
+              </p>
+              
+              <p>
+                52.7073, 8.5031<br>
+                48.63253, 12.85515<br>
+                50.9761, 8.8677<br>
+                53.2724, 12.824<br>
+                48.0336, 7.7649<br>
+                49.59637, 11.11833<br>
+                53.679, 10.6947
+              </p>
+            `
+        },
+        "30": {
+            "titel": "UNIX Zeitstempel",
+            "html": `
+                <p>Im welchem Jahr liegt der Zeitpunkt 817876800?
+                </p>
+            `
+        },
+        "31": {
+            "titel": "Taschenrechner III",
+            "html": `
+              <p>Es wird Zeit für einen neuen Taschenrechner:
+              </p>
+              
+              <br>
+              
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal31.js"></script>
+              
+              <br>
+              
+              <p>Dieser Taschenrechner besteht aus einer "Röhre", die rechts offen ist. Mit den Zahlentasten kannst du einzelne Zahlen in diese Röhre schieben.
+              </p>
+              
+              <p>Um weitere Zahlen zu erzeugen, musst du rechnen. Dazu gibt es die vier Grundrechenarten. Bei diesen Tasten werden die zwei Zahlen ganz rechts aus der Röhre herausgeholt und miteinander addiert, subtrahiert, multipliziert oder dividiert. Probiere das aus und sieh, was passiert!
+              </p>
+              
+              <p>Es gibt zwei Sonderbefehle: <strong>drop</strong> entfernt die letzte Zahl aus der Röhre (also die Zahl ganz rechts), <strong>dup</strong> fügt die letzte Zahl noch einmal hinzu (duplizieren).
+              </p>
+              
+              <p>Berechne das Ergebnis 1000:
+              </p>
+              
+              <p><img src="/chals/chal31_result.png" style="max-width: 300px" alt="chal31"></p>
+            `
+        },
+        "32": {
+            "titel": "Taschenrechner IV",
+            "html": `
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal31.js"></script>
+              
+              <p>Berechne diesmal die Zahl 1337.
+              </p>
+            `
+        },
+        "33": {
+            "titel": "Taschenrechner V",
+            "html": `
+              <p id="op-buttons"></p>
+              <p id="num-buttons"></p>
+              <p><svg id="stack"></svg></p>
+              
+              <script src="/svg.min.js"></script>
+              <script src="/chals/chal33.js"></script>
+              
+              <p>Berechne die Zahl 100. Allerdings fehlen diesmal ein paar Tasten.
+              </p>
+            `
+        },
+        "36": {
+            "titel": "Benutzername V",
+            "html": `
+              <p>Es war noch nie einfacher gewesen, eine eigene Website zu bauen und diese ins Internet zu stellen. Daher die Aufgabe für dich: Erstelle eine Website, die genau deinen Benutzernamen enthält (kein HTML, keine Leerzeichen, nur dein Benutzername!) und gib die URL als Antwort ein:
+              </p>
+            `
+        },
+        "37": {
+            "titel": "Emoji",
+            "html": `
+              <p>Nichts auf der Welt ist so schön wie dein Lächeln. Ich könnte es den ganzen Tag anschauen.
+              </p>
+              
+              <p>Schicke mir ein Lächeln. Deine Antwort ist dieses Emoji:
+              </p>
+              
+              <p><img src="/chals/chal37.png" style="max-width: 80px" alt="chal37"/></p>
+            `
+        },
+        "38": {
+            "titel": "Metadaten",
+            "html": `
+              <p>Oh wie süß! Schau dir dieses Foto an:
+              </p>
+              
+              <p><img src="/chals/chal38.jpg" alt="chal38"></p>
+              
+              <p>Neben dem, was du auf dem Foto sehen kannst, enthalten viele Bilddateien noch weitere Informationen, wie z.B. das Kameramodell oder die ISO-Zahl. Das sind die sog. <em>EXIF-Tags</em> und diese sind leider nicht sofort sichtbar. Allerdings gibt es einige Tools, die dir diese Tags anzeigen können. Und darin findest sich auch die Antwort.</p>
+            `
+        },
+        "39": {
+            "titel": "Flaggen",
+            "html": `
+              <p>Flaggen können viele Bedeutungen haben: Es gibt sie für Länder und Gebiete, aber man kann sie auch als Signal und Alphabet nutzen. In der Seefahrt wird dieses Potenzial voll ausgenutzt.
+              </p>
+              
+              <p>Schau dir <a href="/chals/chal39.mp4">dieses Video</a> an. Welches Wort ergeben die Buchstaben der Signalflaggen?
+              </p>
+            `
+        },
+        "40": {
+            "titel": "Terminal",
+            "html": `
+              <p>Schwarzer Bildschirm, weiße Schrift, kryptische Zeichen und komplizierte Befehle ... auch bekannt unter dem Namen <em>Terminal</em>.
+              </p>
+              
+              <p>Dahinter steckt eine textbasierte Möglichkeit, mit einem Computer zu interagieren. Anstatt mit der Maus zu klicken, werden die gewünschten Aktionen per Befehl eingegeben und ausgeführt. Und das ist auch gar kein so großes Hexenwerk!
+              </p>
+              
+              <p>Diese Aufgabe enthält ein schlankes Terminal, das ein Dateisystem verwaltet. Es gibt verschiedene Verzeichnisse und Dateien - in einer dieser Dateien findet sich die Antwort zu dieser Aufgabe.
+              </p>
+              
+              <p>Um sich im Dateisystem zu bewegen und zu orientieren, gibt es vier Befehle:
+              <ul>
+                <li><code>ls</code><br>Dieser Befehl zeigt den Inhalt des Verzeichnisses, in dem du dich gerade befindest.
+                </li>
+                <li><code>pwd</code><br>Dieser Befehl zeigt dir den Pfad des aktuellen Verzeichnisses.
+                </li>
+                <li><code>cd VERZ</code><br>Dieser Befehl bewegt dich in ein neues Verzeichnis, dessen Namen du anstelle von VERZ schreibst. Um wieder eine Ebene hochzukommen, gibt es die spezielle Variante <code>cd ..</code>
+                </li>
+                <li><code>cat DATEI</code><br>Dieser Befehl zeigt den Inhalt einer Datei an im aktuellen Verzeichnis. Schreibe anstelle von DATEI den Namen der Datei.
+                </li>
+              </ul>
+              </p>
+              
+              <p>Beginne deine Suche nach der Antwort in der Datei <strong>GOP/053/vjer</strong>:
+              </p>
+              
+              <div id="terminal" class="my-4"></div>
+              
+              <script src="/seedrandom.min.js"></script>
+              <script src="/chals/terminal.js"></script>
+              <script src="/chals/chal40.js"></script>
+              
+              <p>Beispiel: Tippe nacheinander die Befehle<br>
+                <code>cd GOP</code><br>
+                <code>cd 239</code><br>
+                <code>ls</code><br>
+                <code>cat yley</code><br>
+                <code>cd ..</code><br>
+                <code>pwd</code>
+              </p>
             `
         }
     },

@@ -1,11 +1,11 @@
 /*! terminal.js v2.0 | (c) 2014 Erik Österberg | https://github.com/eosterberg/terminaljs */
 
-var Terminal = (function () {
+const Terminal = (function () {
   // PROMPT_TYPE
-  var PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3
+  const PROMPT_INPUT = 1, PROMPT_PASSWORD = 2, PROMPT_CONFIRM = 3;
 
-  var fireCursorInterval = function (inputField, terminalObj) {
-    var cursor = terminalObj._cursor
+  const fireCursorInterval = function (inputField, terminalObj) {
+    const cursor = terminalObj._cursor;
     setTimeout(function () {
       if (inputField.parentElement && terminalObj._shouldBlinkCursor) {
         cursor.style.visibility = cursor.style.visibility === 'visible' ? 'hidden' : 'visible'
@@ -14,12 +14,12 @@ var Terminal = (function () {
         cursor.style.visibility = 'visible'
       }
     }, 500)
-  }
+  };
 
-  var firstPrompt = true;
-  promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
-    var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
-    var inputField = document.createElement('input')
+  let firstPrompt = true;
+  let promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
+    const shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT);
+    const inputField = document.createElement('input');
 
     inputField.style.zIndex = '-100'
     inputField.style.outline = 'none'
@@ -59,27 +59,29 @@ var Terminal = (function () {
     inputField.onkeyup = function (e) {
       if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
         terminalObj._input.style.display = 'none'
-        var inputValue = inputField.value
+        const inputValue = inputField.value;
         if (shouldDisplayInput) terminalObj.print('> ' + inputValue)
         terminalObj.html.removeChild(inputField)
-        if (typeof(callback) === 'function') {
+        if (typeof (callback) === 'function') {
           if (PROMPT_TYPE === PROMPT_CONFIRM) {
-            callback(inputValue.toUpperCase()[0] === 'Y' ? true : false)
+            callback(inputValue.toUpperCase()[0] === 'Y')
           } else callback(inputValue)
         }
       }
     }
     if (firstPrompt) {
       firstPrompt = false
-      setTimeout(function () { inputField.focus() }, 50)
+      setTimeout(function () {
+        inputField.focus()
+      }, 50)
     } else {
       inputField.focus()
     }
   }
 
-  var terminalBeep
+  let terminalBeep;
 
-  var TerminalConstructor = function (id) {
+  return function (id) {
     if (!terminalBeep) {
       /*terminalBeep = document.createElement('audio')
       var source = '<source src="http://www.erikosterberg.com/terminaljs/beep.'
@@ -89,23 +91,19 @@ var Terminal = (function () {
 
     this.html = document.createElement('div')
     this.html.className = 'Terminal'
-    if (typeof(id) === 'string') { this.html.id = id }
+    if (typeof (id) === 'string') {
+      this.html.id = id
+    }
 
     this._innerWindow = document.createElement('div')
     this._output = document.createElement('p')
-    this._inputLine = document.createElement('span') //the span element where the users input is put
+    this._inputLine = document.createElement('span') //the span element where the user's input is put
     this._cursor = document.createElement('span')
     this._input = document.createElement('p') //the full element administering the user input, including cursor
 
     this._shouldBlinkCursor = true
-
-    this.beep = function () {
-      terminalBeep.load()
-      terminalBeep.play()
-    }
-
     this.print = function (message) {
-      var newLine = document.createElement('div')
+      const newLine = document.createElement('div');
       newLine.textContent = message
       if (!message) {
         newLine.innerHTML = '&nbsp;'
@@ -129,10 +127,6 @@ var Terminal = (function () {
       this._output.innerHTML = ''
     }
 
-    this.sleep = function (milliseconds, callback) {
-      setTimeout(callback, milliseconds)
-    }
-
     this.setTextSize = function (size) {
       this._output.style.fontSize = size
       this._input.style.fontSize = size
@@ -154,12 +148,6 @@ var Terminal = (function () {
     this.setHeight = function (height) {
       this.html.style.height = height
     }
-
-    this.blinkingCursor = function (bool) {
-      bool = bool.toString().toUpperCase()
-      this._shouldBlinkCursor = (bool === 'TRUE' || bool === '1' || bool === 'YES')
-    }
-
     this._input.appendChild(this._inputLine)
     this._input.appendChild(this._cursor)
     this._innerWindow.appendChild(this._output)
@@ -180,10 +168,8 @@ var Terminal = (function () {
     this._input.style.margin = '0'
     this._output.style.margin = '0'
     this._cursor.style.background = 'white'
-    this._cursor.innerHTML = 'C' //put something in the cursor..
+    this._cursor.innerHTML = 'C' //put something in the cursor...
     this._cursor.style.display = 'none' //then hide it
     this._input.style.display = 'none'
   }
-
-  return TerminalConstructor
-}())
+}());

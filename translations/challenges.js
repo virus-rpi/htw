@@ -725,6 +725,136 @@ module.exports = challanges_transelation = {
               
               <p><img src="/chals/chal45.png" alt="schriftzeichen"></p>
             `
+        },
+        "46": {
+            "titel": "Header",
+            "html": `
+              <p>Finding secret clues is no problem for you because you have a keen eye.
+              </p>
+              
+              <p>When you open a website, a lot of things happen behind the scenes, even when you open one <a href="/chal/chal46">that is empty</a>. But the answer was already being transmitted in the background.
+              </p>
+              
+              <p>Network analysis (usually F12) helps you view all data in the background. Find your answer there.
+              </p>
+              
+              <p><img src="/chals/chal46.png" style="max-width:100%"  alt="chal46"/></p>
+            `
+        },
+        "47": {
+            "titel": "Progressbar",
+            "html": `
+              <p>II couldn't sit patiently like you and wait for the answer to load... I'm always impatient and fidgeting on the keyboard.
+              </p>
+              
+              <p>But could it be that this actually makes the loading bar faster?
+              </p>
+              
+              <p>You will receive the answer as soon as the loading bar is full.
+              </p>
+              
+              <div class="progress my-4">
+                <div id="44_bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 1%"></div>
+              </div>
+              
+              <p id="value"></p>
+              
+              <p id="status"></p>
+              
+              <script>
+                const bar = document.getElementById('44_bar')
+                const value = document.getElementById('value')
+                const status = document.getElementById('status')
+                
+                let step = 1
+                let steps = 1000
+                let x = 3
+                
+                function transform(x) {
+                  return (x * 11) % 10000
+                }
+                
+                function work(noTimeout) {
+                  if (step >= steps) {
+                    bar.style.width = '100%'
+                  } else {
+                    step++
+                    bar.style.width = ((step/steps) * 98.9 + 1) + '%'
+                    x = transform(x)
+                    value.innerHTML = x.toString()
+                    status.innerHTML = '(' + step + '/' + steps + ')'
+                    if (!noTimeout) {
+                      setTimeout(work, 1000)
+                    }
+                  }
+                }
+                
+                window.onkeydown = () => {
+                  work(true)
+                }
+                
+                value.innerHTML = x
+                status.innerHTML = '(1/' + steps + ')'
+                
+                setTimeout(work, 1000)
+              </script>
+            `
+        },
+        "48": {
+            "titel": "Silence",
+            "html": `
+              <p>Finding peace and listening to yourself - I need that again and again in order to connect with myself and be as balanced as you.
+              </p>
+              
+              <p>Some people find it helpful to have an acoustic background.
+              </p>
+              
+              <audio src="/chals/chal48_2.mp3" controls></audio>
+              
+              <p>But you are not alone. Your answer can be found among the chirping of the birds.
+              </p>
+            `
+        },
+        "49": {
+            "titel": "Game save II",
+            "html": `
+              <p>There are games that are a lot of fun — and there are those that ultimately just want to take your money out of your pocket.
+              </p>
+              
+              <p>In games like these, it's tempting to use a hack to improve your score. Unfortunately, many developers are aware of this possibility and encrypt the save game.
+              </p>
+              
+              <p>But no encryption is perfect! It is usually easy to find out the key and thus crack the encryption.
+              </p>
+              
+              <p>Your current score is: <code>cc76663b7d1e97ea2455b1c25676f44794fec90b0a9b823f916bf79387de4238</code>
+              </p>
+              
+              <p>The key is: <code>786d229b0de877774a2f676d5bd895c3</code>
+              </p>
+              
+              <p>The encryption method is AES-128 in ECB mode with PKCS padding.
+              </p>
+              
+              <p>Your task: Increase your gold amount to 999999 and enter the new (encrypted) score.</p>
+            `
+        },
+        "50": {
+            "titel": "Pigpen Cipher",
+            "html": `
+              <p>What do these angular signs mean?
+              </p>
+              
+              <p><img src="/chals/chal50-en.png" alt="chal50"></p>
+              
+              <p>Luckily, there is the following hint:
+              </p>
+              
+              <p><img src="/chals/chal50.gif" alt="chal50"></p>
+              
+              <p>The first letter of the text would be a D, and the last letter of the text would be an S.
+              </p>
+            `
         }
     },
     "de": {
@@ -1439,6 +1569,136 @@ module.exports = challanges_transelation = {
               </p>
               
               <p><img src="/chals/chal45.png" alt="schriftzeichen"></p>
+            `
+        },
+        "46": {
+            "titel": "Kopfdaten",
+            "html": `
+              <p>Geheime Spuren zu finden ist für dich kein Problem, denn du hast einen scharfen Blick.
+              </p>
+              
+              <p>Wenn du eine Webseite öffnest, passieren hinter den Kulissen viele Dinge, selbst beim Aufruf einer <a href="/chal/chal46">leeren Seite</a>. Doch im Hintergrund wurde bereits die Antwort übertragen.
+              </p>
+              
+              <p>Die Netzwerkanalyse (meist F12) hilft dir, alle Daten im Hintergrund anzuzeigen. Finde darin deine Antwort.
+              </p>
+              
+              <p><img src="/chals/chal46.png" style="max-width:100%"  alt="chal46"/></p>
+            `
+        },
+        "47": {
+            "titel": "Ladebalken",
+            "html": `
+              <p>Ich könnte nicht wie du geduldig sitzen und warten, bis die Antwort lädt ... ich bin immer ungeduldig und drücke auf der Tastatur herum.
+              </p>
+              
+              <p>Aber kann es sein, dass der Ladebalken dadurch tatsächlich schneller wird?
+              </p>
+              
+              <p>Die Antwort erhälst du, sobald der Ladebalken voll ist.
+              </p>
+              
+              <div class="progress my-4">
+                <div id="44_bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 1%"></div>
+              </div>
+              
+              <p id="value"></p>
+              
+              <p id="status"></p>
+              
+              <script>
+                const bar = document.getElementById('44_bar')
+                const value = document.getElementById('value')
+                const status = document.getElementById('status')
+                
+                let step = 1
+                let steps = 1000
+                let x = 3
+                
+                function transform(x) {
+                  return (x * 11) % 10000
+                }
+                
+                function work(noTimeout) {
+                  if (step >= steps) {
+                    bar.style.width = '100%'
+                  } else {
+                    step++
+                    bar.style.width = ((step/steps) * 98.9 + 1) + '%'
+                    x = transform(x)
+                    value.innerHTML = x.toString()
+                    status.innerHTML = '(' + step + '/' + steps + ')'
+                    if (!noTimeout) {
+                      setTimeout(work, 1000)
+                    }
+                  }
+                }
+                
+                window.onkeydown = () => {
+                  work(true)
+                }
+                
+                value.innerHTML = x
+                status.innerHTML = '(1/' + steps + ')'
+                
+                setTimeout(work, 1000)
+              </script>
+            `
+        },
+        "48": {
+            "titel": "Stille",
+            "html": `
+              <p>Zur Ruhe kommen und in sich hineinhören - das brauche ich immer wieder, um mich mit mir selbst zu verbinden und so ausgeglichen sein zu können wie du.
+              </p>
+              
+              <p>Manche Menschen finden es hilfreich, dabei eine akustische Untermalung zu haben.
+              </p>
+              
+              <audio src="/chals/chal48_2.mp3" controls></audio>
+              
+              <p>Doch du bist nicht alleine. Deine Antwort findet sich zwischen dem Zwischern der Vögel.
+              </p>
+            `,
+        },
+        "49": {
+            "titel": "Spielstand II",
+            "html": `
+              <p>Es gibt Spiele, die machen richtig viel Spaß - und es gibt welche, die am Ende doch nur dein Geld aus der Tasche ziehen wollen.
+              </p>
+              
+              <p>Bei solchen Spielen ist verlockend, durch einen Hack seinen Spielstand zu verbessern. Leider sind sich viele Entwickler dieser Möglichkeit bewusst und verschlüsseln den Spielstand.
+              </p>
+              
+              <p>Doch keine Verschlüsslung ist perfekt! Meist lässt sich der Schlüssel leicht herausfinden und damit die Verschlüsselung knacken.
+              </p>
+              
+              <p>Dein aktueller Spielstand lautet: <code>cc76663b7d1e97ea2455b1c25676f44794fec90b0a9b823f916bf79387de4238</code>
+              </p>
+              
+              <p>Der Schlüssel lautet: <code>786d229b0de877774a2f676d5bd895c3</code>
+              </p>
+              
+              <p>Die Verschlüsselungsmethode ist AES-128 im ECB-Modus mit PKCS-Padding.
+              </p>
+              
+              <p>Deine Aufgabe: Erhöhe deinen Goldbetrag auf 999999 und gib den neuen (verschlüsselten) Spielstand ein.</p>
+            `
+        },
+        "50": {
+            "titel": "Winkelschrift",
+            "html": `
+              <p>Was diese winkeligen Zeichen wohl sagen mögen?
+              </p>
+              
+              <p><img src="/chals/chal50.png" alt="chal50"></p>
+              
+              <p>Zum Glück gibt es folgenden Hinweis:
+              </p>
+              
+              <p><img src="/chals/chal50.gif" alt="chal50"></p>
+              
+              <p>Der erste Buchstabe des Texts wäre damit ein D, der letzte Buchstabe des Texts ein S.
+              </p>
             `
         }
     },
